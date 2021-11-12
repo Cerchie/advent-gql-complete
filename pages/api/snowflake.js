@@ -2,7 +2,7 @@
 
 export default async function getData(req, res) {
   const response = await fetch(
-    `${process.env.NEXT_STEPZEN_API_URL}`,
+    "https://mojave.stepzen.net/api/your-cheetah/__graphql",
 
     {
       method: "POST",

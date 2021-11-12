@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import useSWR from "swr";
+import useSWR, { useSWRConfig, mutate } from "swr";
 
 // fetcher function to enable use of SWR callback
 const fetcher = async (url) => {
@@ -43,7 +43,14 @@ export default function Home() {
                 loading="eager"
               />
               <div>
-                <button className={styles.button}>Submit</button>
+                <button
+                  className={styles.button}
+                  onClick={() => {
+                    mutate("/api/snowflake");
+                  }}
+                >
+                  Submit
+                </button>
               </div>
             </div>
           </div>
